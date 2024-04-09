@@ -1,0 +1,78 @@
+class User { 
+    static count: number = 0; 
+    protected _name: string; 
+    protected _login: string; 
+    protected _password: string; 
+    protected _grade: number; 
+ 
+    constructor(name: string, login: string, password: string, grade: number) { 
+        this._name = name; 
+        this._login = login; 
+        this._password = password; 
+        this._grade = grade; 
+    } 
+ 
+    get name(): string { 
+        return this._name; 
+    } 
+ 
+    set name(value: string) { 
+        this._name = value; 
+    } 
+ 
+    get login(): string { 
+        return this._login; 
+    } 
+ 
+    get password(): string { 
+        return ''; 
+    } 
+   
+} 
+ 
+class SuperUser extends User { 
+    static count: number = 0; 
+    private _role: string; 
+ 
+    constructor(name: string, login: string, password: string, role: string) { 
+        super(name, login, password, 0);  
+        this._role = role; 
+   
+    } 
+ 
+    get role(): string { 
+        return this._role; 
+    } 
+ 
+    set role(value: string) { 
+        this._role = value; 
+    } 
+ 
+    showInfo(): void { 
+        console.log(`Name: ${this._name}, Login: ${this._login}, Role: ${this._role}`); 
+    } 
+} 
+ 
+const user1 = new User('Sasha', 'God', '1112', 2); 
+const user2 = new User('Petya Aleks', 'petya', '2221', 1); 
+const admin = new SuperUser('IMBEST', 'koks', '3331', 'admin');
+
+user1.showInfo( );
+admin.showInfo( );
+
+
+
+console.log(`Всего обычн пользователей: ${User.count}`);
+
+console.log(`Всего пользов: ${SuperUser.count}`);
+
+
+console.log(user1.a (user2));
+
+console.log(admin.b ( user3));
+console.log(user1.c (user3));
+
+user3.name = 'Ringo Starr';
+console.log(user3.name);
+console.log(user2.password);
+console.log(user2.login);
